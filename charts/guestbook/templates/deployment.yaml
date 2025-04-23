@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: guestbook
+  template:
+    metadata:
+      labels:
+        app: guestbook
+        canary: "{{ .Values.canary.enabled }}"
+    spec:
+      containers:
+        - name: guestbook
+          image: "{{ .Values.canary.image }}"
+          ports:
+            - containerPort: 80
