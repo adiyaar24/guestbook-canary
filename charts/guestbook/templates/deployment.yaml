@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: guestbook
+  annotations:
+    harness.io/canary-weight: "{{ .Values.canary.weight }}"
+    harness.io/canary-image: "{{ .Values.canary.image }}"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
