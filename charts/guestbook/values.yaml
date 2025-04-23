@@ -3,3 +3,4 @@ replicaCount: 1
 canary:
   enabled: false
   image: "nginxdemos/hello:plain-text"
+  weight: "0"
