@@ -1,4 +1,4 @@
 canary:
   enabled: true
   image: "nginxdemos/hello:plain-text-red"
-  weight: 10
+  weight: "10"
